@@ -12,6 +12,7 @@ whitenoise = "*"
 dnspython = "*"
 django-crispy-forms = "*"
 gunicorn = "*"
+sentry-sdk = "*"
 
 [requires]
 python_version = "3.8"
