@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Micro style -->
+{% block style %}
+<style>
+.btn-lg {
+  width:100%;
+}
+@media (max-width: 768px) {
+  h2 {
+    font-size: 20px;
+    font-style: normal;
+  }
+}
+</style>
+{% endblock %}
+<!-- Title -->
+{% block title %}Coupon Details{% endblock %}
+
+{% block content %}
+<!-- Redemption success banner-->
+{% if redeem_success == 1 %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  Successfully redeemed <strong>{{ object.coupon_id }}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% elif redeem_success == 2 %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  Failed to redeem <strong>{{ object.coupon_id }}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %}
+<!-- Redemption views -->
+{% if object.active %}
+<h1 style="color: green">Active</h1>
+<h2>ID: {{ object.coupon_id }}</h2>
+<hr />
+<form method="post"> {% csrf_token %}
+  <button type="submit" class="btn btn-success btn-lg" onclick="return confirm('Confirm redemption');">Redeem</button>
+</form>
+
+{% else %}
+<h1 style="color: red">Spent</h1>
+<h2>ID: {{ object.coupon_id }}</h2>
+<h2>Time: {{ object.updated_at }}</h2>
+{% endif %}
+{% endblock %}

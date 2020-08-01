@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'styles/index.css' %}">
+{% endblock style %}
+
+{% block title %}Coupon System{% endblock title %}
+
+{% block content %}
+<div class="row">
+
+<div class="col-md-6">
+  <div class="jumbotron same-height">
+    <h1 class="display-4 jumbo-header">Treasurer</h1>
+    <p class="lead">I am a booth treasurer. Login to register coupon spending at booth.</p>
+    <hr class="my-4">
+      <a class="btn btn-success btn-lg fill-jumbotron" href="./commercial.html" role="button">Input coupons</a>
+  </div>
+</div>
+
+<div class="col-md-6">
+  <div class="jumbotron same-height">
+    <h1 class="display-4 jumbo-header">Manager</h1>
+    <p class="lead">I am a coupon manager. Login to monitor coupon spending and status.</p>
+    <hr class="my-4">
+      <a class="btn btn-warning btn-lg fill-jumbotron" href="./commercial.html" role="button">Manage Coupons</a>
+  </div>
+</div>
+
+</div>
+
+<!-- TODO: Implement sortable table using django-tables-2 -->
+<ul>
+  {% for coupon in all_coupons_list %}
+  <li>{{ coupon.coupon_id }} is {{ coupon.active }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

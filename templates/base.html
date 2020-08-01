@@ -1,0 +1,77 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en-gb">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS (CDN) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}">
+    {% block style %}{% endblock %}
+
+    <!-- Bootstrap JS (CDN) -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- Favicons and Title
+    <link rel="apple-touch-icon" sizes="180x180" href="./Images/Icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./Images/Icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./Images/Icons/favicon-16x16.png">
+    <link rel="manifest" href="./Images/Icons/site.webmanifest">-->
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+
+  <!-- Navigation menu-->
+  <!-- Nest in nav to improve accessibiltiy-->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="{% url 'home' %}">RI Carnival 🎡</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavBar" aria-controls="collapsingNavBar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Container to enable collapsing of navbar elements-->
+    <div class="collapse navbar-collapse" id="collapsingNavBar" role="menu">
+      <ul class="navbar-nav">
+        <li class="nav-item" role="menuitem">
+          <a class="nav-link" href="{% url 'home' %}">Home 🏠</a>
+        </li>
+        <li class="nav-item" role="menuitem">
+          <a class="nav-link" href="{% url 'home' %}">Treasurer 📒</a>
+        </li>
+        <li class="nav-item" role="menuitem">
+          <a class="nav-link" href="{% url 'home' %}">Manager 👁</a>
+        </li>
+      </ul>
+      <!-- Searchbar to be implemented-->
+      
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+
+  <!-- Body -->
+  <body>
+    {% block content %}{% endblock %}
+  </body>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span class="text">Brought to you by the RIPB and CECs 😉</span>
+  </footer>
+
+  <!-- Personalised JS -->
+  <!-- Make horizontal jumbotrons same height on smaller screens -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $('.same-height').matchHeight();
+  </script>

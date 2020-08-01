@@ -1,0 +1,14 @@
+.jumbotron {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.jumbo-header {
+    text-align: center;
+}
+
+.fill-jumbotron {
+    width: 100%;
+}
