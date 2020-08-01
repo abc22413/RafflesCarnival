@@ -11,6 +11,7 @@ python-decouple = "*"
 whitenoise = "*"
 dnspython = "*"
 django-crispy-forms = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
