@@ -9,10 +9,11 @@ verify_ssl = true
 django = "*"
 python-decouple = "*"
 whitenoise = "*"
-dnspython = "*"
 django-crispy-forms = "*"
 gunicorn = "*"
 sentry-sdk = "*"
+dj-database-url = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.8"
