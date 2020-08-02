@@ -28,8 +28,7 @@ import dj_database_url
 DATABASE_URL = config("DATABASE_URL")
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config(
-    conn_max_age=0, 
-    ssl_require=True
+    conn_max_age=0,
 )
 
 
