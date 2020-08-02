@@ -43,21 +43,21 @@
           <a class="nav-link" href="{% url 'home' %}">Home 🏠</a>
         </li>
         <li class="nav-item" role="menuitem">
-          <a class="nav-link" href="{% url 'home' %}">Treasurer 📒</a>
+          <a class="nav-link" href="{% url 'treasurer' %}">Treasurer 📒</a>
         </li>
         <li class="nav-item" role="menuitem">
-          <a class="nav-link" href="{% url 'home' %}">Manager 👁</a>
+          <a class="nav-link" href="{% url 'manager' %}">Manager 👁</a>
         </li>
       </ul>
       {% if user.is_authenticated %}
       <form class="form-inline ml-auto">
-        <a style="width:100px;" href="{% url 'logout' %}" class="btn btn-primary">
+        <a style="width:140px;" href="{% url 'logout' %}" class="btn btn-primary">
         Log out</a>
       </form>
       {% else %}
       <!-- Login buttons -->
       <form class="form-inline ml-auto">
-        <a style="width:120px;" href="{% url 'login' %}" class="btn btn-primary">
+        <a style="width:140px;" href="{% url 'login' %}" class="btn btn-primary">
         Log in</a>
       </form>
       {% endif %}

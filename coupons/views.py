@@ -10,7 +10,7 @@ def IndexView(request):
         context["all_coupons_list"] = Coupon.objects.all()
     return render(request, 'index.html', context=context)
 
-#@login_required(login_url=reverse("login"))
+@login_required
 def DetailsView(request, pk):
     context = {}
 
@@ -35,3 +35,7 @@ def DetailsView(request, pk):
 @login_required
 def ManagerView(request):
     return render(request, "manager.html")
+
+@login_required
+def TreasurerView(request):
+    return render(request, "treasurer.html")

@@ -15,7 +15,7 @@
     <h1 class="display-4 jumbo-header">Treasurer</h1>
     <p class="lead">I am a booth treasurer. Login to register coupon spending at booth.</p>
     <hr class="my-4">
-      <a class="btn btn-success btn-lg fill-jumbotron" href="./commercial.html" role="button">Input coupons</a>
+      <a class="btn btn-success btn-lg fill-jumbotron" href="{% url 'treasurer' %}" role="button">Input coupons</a>
   </div>
 </div>
 
@@ -24,7 +24,7 @@
     <h1 class="display-4 jumbo-header">Manager</h1>
     <p class="lead">I am a coupon manager. Login to monitor coupon spending and status.</p>
     <hr class="my-4">
-      <a class="btn btn-warning btn-lg fill-jumbotron" href="./commercial.html" role="button">Manage Coupons</a>
+      <a class="btn btn-warning btn-lg fill-jumbotron" href="{% url 'manager' %}" role="button">Manage Coupons</a>
   </div>
 </div>
 
