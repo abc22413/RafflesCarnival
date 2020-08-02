@@ -14,15 +14,12 @@ from decouple import config
 import os
 import dns
 
+#Sentry.io integration
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
-
 sentry_sdk.init(
     dsn=config("dsn"),
     integrations=[DjangoIntegration()],
-
-    # If you wish to associate users to errors (assuming you are using
-    # django.contrib.auth) you may enable sending PII data.
     send_default_pii=True
 )
 
@@ -135,10 +132,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-STATIC_URL = os.path.join(BASE_DIR, 'static/')
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "templates"),
     os.path.join(BASE_DIR, "static")
 ]
+# Simplified static file serving.
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
