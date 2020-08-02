@@ -19,4 +19,5 @@ from .views import *
 urlpatterns = [
     path('<uuid:pk>', DetailsView, name='coupon_details'),
     path('', IndexView, name='home'),
+    path('manager/', ManagerView, name='manager'),
 ]

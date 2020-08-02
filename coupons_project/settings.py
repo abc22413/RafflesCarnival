@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 from decouple import config
 import os
+from django.urls import reverse, reverse_lazy
 
 #Sentry.io integration
 import sentry_sdk
@@ -43,7 +44,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ri-carnival.herokuapp.com']
 
@@ -59,6 +60,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #local
     'coupons.apps.CouponsConfig',
+    'users.apps.UsersConfig',
     #3rd party
     'crispy_forms'
 ]
@@ -137,3 +139,8 @@ STATICFILES_DIRS = [
 ]
 # Simplified static file serving.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+#Login
+LOGIN_REDIRECT_URL = reverse_lazy("home")
+LOGOUT_REDIRECT_URL = reverse_lazy("home")
+LOGIN_URL = reverse_lazy("login")

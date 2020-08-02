@@ -32,6 +32,6 @@ def DetailsView(request, pk):
 
     return render(request, 'coupon_detail.html', context=context)
 
-@login_required(login_url=reverse('login'))
+@login_required
 def ManagerView(request):
     return render(request, "manager.html")

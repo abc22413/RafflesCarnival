@@ -51,6 +51,8 @@
       <input type="password" name="password" id="password" class="form-control">
       <small class="form-text text-muted">If problems persist contact prefect</small>
     </div>
+    <!-- For next -->
+    <input type="hidden" name="next" value="{{ request.GET.next }}"/>
 
     <button style="width:100%;" class="btn btn-m btn-success g-recaptcha" data-sitekey="6LfAVLkZAAAAAPmBDlpLFVHqdUawKn8v9gTGvry5" data-callback='onSubmit' type="submit">Log in</button>
     <div style="width:100%; height: 15px;"></div>

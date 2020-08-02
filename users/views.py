@@ -23,7 +23,8 @@ def LoginView(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse('home'))
+            next_page = form.get("next")
+            return HttpResponseRedirect(next_page if next_page else reverse('home'))
         else:
             context["login_fail"]=True
         return render(request, 'login.html', context=context)

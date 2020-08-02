@@ -22,7 +22,7 @@ def trigger_error(request):
 
 urlpatterns = [
     path('', include("coupons.urls")),
-    #path('users/', include("users.urls")),
-    #path('admin/', admin.site.urls),
-    #path('sentry-debug/', trigger_error),
+    path('users/', include("users.urls")),
+    path('admin/', admin.site.urls),
+    path('sentry-debug/', trigger_error),
 ]
