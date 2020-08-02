@@ -2,7 +2,6 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from django.middleware.csrf import CsrfViewMiddleware
 from .models import *
 
 def IndexView(request):
@@ -32,3 +31,7 @@ def DetailsView(request, pk):
             #HttpResponseRedirect(reverse_lazy("coupon_details"))
 
     return render(request, 'coupon_detail.html', context=context)
+
+@login_required(login_url=reverse('login'))
+def ManagerView(request):
+    return render(request, "manager.html")

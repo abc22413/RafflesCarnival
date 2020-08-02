@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<!-- Recaptcha v2 integration-->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+  function onSubmit(token) {
+    document.getElementById("login-form").submit();
+  }
+</script>
+<style>
+  .grecaptcha-badge { 
+    margin-bottom:65px !important; 
+}
+</style>
+
+<!-- Banner announcements -->
+{% if login_fail %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  Invalid username and/or password
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% elif captcha_fail %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  Captcha check failed
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %}
+
+<!-- Main content -->
+<div id="main">
+  <h1>Login</h1>
+  <hr />
+  <form id="login-form" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" placeholder="3D-B1-T1" class="form-control">
+      <small class="form-text text-muted">Check with your CEC</small>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" class="form-control">
+      <small class="form-text text-muted">If problems persist contact prefect</small>
+    </div>
+
+    <button style="width:100%;" class="btn btn-m btn-success g-recaptcha" data-sitekey="6LfAVLkZAAAAAPmBDlpLFVHqdUawKn8v9gTGvry5" data-callback='onSubmit' type="submit">Log in</button>
+    <div style="width:100%; height: 15px;"></div>
+    <button style="width: 200px;" class="btn btn-m btn-primary" href="">Forgot Password</button>
+    <!-- Form end -->
+  </form>
+</div>
+{% endblock %}
