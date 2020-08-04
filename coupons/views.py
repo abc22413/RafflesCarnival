@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from django.core.exceptions import PermissionDenied
 from .models import *
 
 def IndexView(request):
@@ -34,8 +35,12 @@ def DetailsView(request, pk):
 
 @login_required
 def ManagerView(request):
+    if request.user.profile.role!="MR":
+        raise PermissionDenied
     return render(request, "manager.html")
 
 @login_required
 def TreasurerView(request):
+    if request.user.profile.role!="TR":
+        raise PermissionDenied
     return render(request, "treasurer.html")

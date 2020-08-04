@@ -10,6 +10,7 @@
 {% block content %}
 <div class="row">
 
+{% if user.profile.role != "MR" %}
 <div class="col-md-6">
   <div class="jumbotron same-height">
     <h1 class="display-4 jumbo-header">Treasurer</h1>
@@ -18,7 +19,9 @@
       <a class="btn btn-success btn-lg fill-jumbotron" href="{% url 'treasurer' %}" role="button">Input coupons</a>
   </div>
 </div>
+{% endif %}
 
+{% if user.profile.role != "TR" %}
 <div class="col-md-6">
   <div class="jumbotron same-height">
     <h1 class="display-4 jumbo-header">Manager</h1>
@@ -27,13 +30,16 @@
       <a class="btn btn-warning btn-lg fill-jumbotron" href="{% url 'manager' %}" role="button">Manage Coupons</a>
   </div>
 </div>
-
+{% endif %}
 </div>
 
 <!-- TODO: Implement sortable table using django-tables-2 -->
+{% if user.is_authenticated %}
 <ul>
   {% for coupon in all_coupons_list %}
   <li>{{ coupon.coupon_id }} is {{ coupon.active }}</li>
   {% endfor %}
 </ul>
+{% endif %}
+
 {% endblock %}
