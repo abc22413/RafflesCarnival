@@ -3,6 +3,7 @@
 
 {% block style %}
 <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 {% endblock style %}
 
 {% block title %}Coupon System{% endblock title %}
@@ -31,6 +32,12 @@
   </div>
 </div>
 {% endif %}
+</div>
+
+<!-- Charts -->
+<!-- Y1-4 proportion of tickets sold -->
+<div class="col-md-6">
+  <canvas id="pie-chart"></canvas>
 </div>
 
 <!-- TODO: Implement sortable table using django-tables-2 -->
